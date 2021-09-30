@@ -8,10 +8,10 @@ import (
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
 
-	redisfailoverv1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
-	"github.com/spotahome/redis-operator/log"
-	"github.com/spotahome/redis-operator/service/k8s"
-	"github.com/spotahome/redis-operator/service/redis"
+	redisfailoverv1 "github.com/szlabs/redis-operator/api/redisfailover/v1"
+	"github.com/szlabs/redis-operator/log"
+	"github.com/szlabs/redis-operator/service/k8s"
+	"github.com/szlabs/redis-operator/service/redis"
 )
 
 // RedisFailoverCheck defines the interface able to check the correct status of a redis failover

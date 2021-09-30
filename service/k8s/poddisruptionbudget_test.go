@@ -13,13 +13,11 @@ import (
 	kubernetes "k8s.io/client-go/kubernetes/fake"
 	kubetesting "k8s.io/client-go/testing"
 
-	"github.com/spotahome/redis-operator/log"
-	"github.com/spotahome/redis-operator/service/k8s"
+	"github.com/szlabs/redis-operator/log"
+	"github.com/szlabs/redis-operator/service/k8s"
 )
 
-var (
-	podDisruptionBudgetsGroup = schema.GroupVersionResource{Group: "policy", Version: "v1beta1", Resource: "poddisruptionbudgets"}
-)
+var podDisruptionBudgetsGroup = schema.GroupVersionResource{Group: "policy", Version: "v1beta1", Resource: "poddisruptionbudgets"}
 
 func newPodDisruptionBudgetUpdateAction(ns string, podDisruptionBudget *policyv1beta1.PodDisruptionBudget) kubetesting.UpdateActionImpl {
 	return kubetesting.NewUpdateAction(podDisruptionBudgetsGroup, ns, podDisruptionBudget)

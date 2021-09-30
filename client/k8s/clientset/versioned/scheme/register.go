@@ -19,16 +19,18 @@ limitations under the License.
 package scheme
 
 import (
-	databasesv1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
+	databasesv1 "github.com/szlabs/redis-operator/api/redisfailover/v1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	runtime "k8s.io/apimachinery/pkg/runtime"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
 	serializer "k8s.io/apimachinery/pkg/runtime/serializer"
 )
 
-var Scheme = runtime.NewScheme()
-var Codecs = serializer.NewCodecFactory(Scheme)
-var ParameterCodec = runtime.NewParameterCodec(Scheme)
+var (
+	Scheme         = runtime.NewScheme()
+	Codecs         = serializer.NewCodecFactory(Scheme)
+	ParameterCodec = runtime.NewParameterCodec(Scheme)
+)
 
 func init() {
 	v1.AddToGroupVersion(Scheme, schema.GroupVersion{Version: "v1"})

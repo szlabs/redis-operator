@@ -19,7 +19,7 @@ limitations under the License.
 package fake
 
 import (
-	redisfailover_v1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
+	redisfailover_v1 "github.com/szlabs/redis-operator/api/redisfailover/v1"
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	labels "k8s.io/apimachinery/pkg/labels"
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
@@ -75,7 +75,6 @@ func (c *FakeRedisFailovers) List(opts v1.ListOptions) (result *redisfailover_v1
 func (c *FakeRedisFailovers) Watch(opts v1.ListOptions) (watch.Interface, error) {
 	return c.Fake.
 		InvokesWatch(testing.NewWatchAction(redisfailoversResource, c.ns, opts))
-
 }
 
 // Create takes the representation of a redisFailover and creates it.  Returns the server's representation of the redisFailover, and an error, if there is any.

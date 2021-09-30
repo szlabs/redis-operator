@@ -13,13 +13,11 @@ import (
 	kubernetes "k8s.io/client-go/kubernetes/fake"
 	kubetesting "k8s.io/client-go/testing"
 
-	"github.com/spotahome/redis-operator/log"
-	"github.com/spotahome/redis-operator/service/k8s"
+	"github.com/szlabs/redis-operator/log"
+	"github.com/szlabs/redis-operator/service/k8s"
 )
 
-var (
-	rbGroup = schema.GroupVersionResource{Group: "rbac.authorization.k8s.io", Version: "v1", Resource: "rolebindings"}
-)
+var rbGroup = schema.GroupVersionResource{Group: "rbac.authorization.k8s.io", Version: "v1", Resource: "rolebindings"}
 
 func newRBUpdateAction(ns string, rb *rbacv1.RoleBinding) kubetesting.UpdateActionImpl {
 	return kubetesting.NewUpdateAction(rbGroup, ns, rb)
@@ -32,6 +30,7 @@ func newRBGetAction(ns, name string) kubetesting.GetActionImpl {
 func newRBCreateAction(ns string, rb *rbacv1.RoleBinding) kubetesting.CreateActionImpl {
 	return kubetesting.NewCreateAction(rbGroup, ns, rb)
 }
+
 func newRBDeleteAction(ns string, name string) kubetesting.DeleteActionImpl {
 	return kubetesting.NewDeleteAction(rbGroup, ns, name)
 }

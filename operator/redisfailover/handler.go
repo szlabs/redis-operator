@@ -9,12 +9,12 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 
-	redisfailoverv1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
-	"github.com/spotahome/redis-operator/log"
-	"github.com/spotahome/redis-operator/metrics"
-	rfservice "github.com/spotahome/redis-operator/operator/redisfailover/service"
-	"github.com/spotahome/redis-operator/operator/redisfailover/util"
-	"github.com/spotahome/redis-operator/service/k8s"
+	redisfailoverv1 "github.com/szlabs/redis-operator/api/redisfailover/v1"
+	"github.com/szlabs/redis-operator/log"
+	"github.com/szlabs/redis-operator/metrics"
+	rfservice "github.com/szlabs/redis-operator/operator/redisfailover/service"
+	"github.com/szlabs/redis-operator/operator/redisfailover/util"
+	"github.com/szlabs/redis-operator/service/k8s"
 )
 
 const (
@@ -22,11 +22,9 @@ const (
 	rfLabelNameKey      = "redisfailovers.databases.spotahome.com/name"
 )
 
-var (
-	defaultLabels = map[string]string{
-		rfLabelManagedByKey: operatorName,
-	}
-)
+var defaultLabels = map[string]string{
+	rfLabelManagedByKey: operatorName,
+}
 
 // RedisFailoverHandler is the Redis Failover handler. This handler will create the required
 // resources that a RF needs.

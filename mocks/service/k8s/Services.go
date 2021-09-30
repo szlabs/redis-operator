@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	crd "github.com/yxxhero/kooper/client/crd"
+	crd "github.com/szlabs/kooper/client/crd"
 	appsv1 "k8s.io/api/apps/v1"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -12,7 +12,7 @@ import (
 
 	rbacv1 "k8s.io/api/rbac/v1"
 
-	redisfailoverv1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
+	redisfailoverv1 "github.com/szlabs/redis-operator/api/redisfailover/v1"
 
 	v1 "k8s.io/api/core/v1"
 

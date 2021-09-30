@@ -9,16 +9,16 @@ import (
 	"time"
 
 	"github.com/prometheus/client_golang/prometheus"
-	kmetrics "github.com/yxxhero/kooper/monitoring/metrics"
+	kmetrics "github.com/szlabs/kooper/monitoring/metrics"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/oidc"
 	"k8s.io/client-go/rest"
 
-	"github.com/spotahome/redis-operator/cmd/utils"
-	"github.com/spotahome/redis-operator/log"
-	"github.com/spotahome/redis-operator/metrics"
-	"github.com/spotahome/redis-operator/operator/redisfailover"
-	"github.com/spotahome/redis-operator/service/k8s"
-	"github.com/spotahome/redis-operator/service/redis"
+	"github.com/szlabs/redis-operator/cmd/utils"
+	"github.com/szlabs/redis-operator/log"
+	"github.com/szlabs/redis-operator/metrics"
+	"github.com/szlabs/redis-operator/operator/redisfailover"
+	"github.com/szlabs/redis-operator/service/k8s"
+	"github.com/szlabs/redis-operator/service/redis"
 )
 
 const (

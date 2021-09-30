@@ -19,7 +19,7 @@ limitations under the License.
 package versioned
 
 import (
-	databasesv1 "github.com/spotahome/redis-operator/client/k8s/clientset/versioned/typed/redisfailover/v1"
+	databasesv1 "github.com/szlabs/redis-operator/client/k8s/clientset/versioned/typed/redisfailover/v1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"

@@ -11,7 +11,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	kmetrics "github.com/yxxhero/kooper/monitoring/metrics"
+	kmetrics "github.com/szlabs/kooper/monitoring/metrics"
 	corev1 "k8s.io/api/core/v1"
 	v1 "k8s.io/api/core/v1"
 	apiextensionsclientset "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset"
@@ -21,14 +21,14 @@ import (
 	_ "k8s.io/client-go/plugin/pkg/client/auth/oidc"
 	"k8s.io/client-go/util/homedir"
 
-	redisfailoverv1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
-	redisfailoverclientset "github.com/spotahome/redis-operator/client/k8s/clientset/versioned"
-	"github.com/spotahome/redis-operator/cmd/utils"
-	"github.com/spotahome/redis-operator/log"
-	"github.com/spotahome/redis-operator/metrics"
-	"github.com/spotahome/redis-operator/operator/redisfailover"
-	"github.com/spotahome/redis-operator/service/k8s"
-	"github.com/spotahome/redis-operator/service/redis"
+	redisfailoverv1 "github.com/szlabs/redis-operator/api/redisfailover/v1"
+	redisfailoverclientset "github.com/szlabs/redis-operator/client/k8s/clientset/versioned"
+	"github.com/szlabs/redis-operator/cmd/utils"
+	"github.com/szlabs/redis-operator/log"
+	"github.com/szlabs/redis-operator/metrics"
+	"github.com/szlabs/redis-operator/operator/redisfailover"
+	"github.com/szlabs/redis-operator/service/k8s"
+	"github.com/szlabs/redis-operator/service/redis"
 )
 
 const (
@@ -149,7 +149,6 @@ func TestRedisFailover(t *testing.T) {
 	// check that all of them are connected to the same Redis node, and also that that node
 	// is the master.
 	t.Run("Check Sentinels Checking the Redis Master", clients.testSentinelMonitoring)
-
 }
 
 func (c *clients) testCRCreation(t *testing.T) {
@@ -248,7 +247,6 @@ func (c *clients) testSentinelMonitoring(t *testing.T) {
 }
 
 func (c *clients) testAuth(t *testing.T) {
-
 	assert := assert.New(t)
 
 	redisCfg, err := c.k8sClient.CoreV1().ConfigMaps(namespace).Get(fmt.Sprintf("rfr-%s", name), metav1.GetOptions{})

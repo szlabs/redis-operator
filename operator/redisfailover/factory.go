@@ -3,15 +3,15 @@ package redisfailover
 import (
 	"time"
 
-	kmetrics "github.com/yxxhero/kooper/monitoring/metrics"
-	"github.com/yxxhero/kooper/operator"
-	"github.com/yxxhero/kooper/operator/controller"
+	kmetrics "github.com/szlabs/kooper/monitoring/metrics"
+	"github.com/szlabs/kooper/operator"
+	"github.com/szlabs/kooper/operator/controller"
 
-	"github.com/spotahome/redis-operator/log"
-	"github.com/spotahome/redis-operator/metrics"
-	rfservice "github.com/spotahome/redis-operator/operator/redisfailover/service"
-	"github.com/spotahome/redis-operator/service/k8s"
-	"github.com/spotahome/redis-operator/service/redis"
+	"github.com/szlabs/redis-operator/log"
+	"github.com/szlabs/redis-operator/metrics"
+	rfservice "github.com/szlabs/redis-operator/operator/redisfailover/service"
+	"github.com/szlabs/redis-operator/service/k8s"
+	"github.com/szlabs/redis-operator/service/redis"
 )
 
 const (

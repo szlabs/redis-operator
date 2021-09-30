@@ -1,10 +1,11 @@
 package k8s
 
 import (
+	"context"
 	"testing"
 
-	"github.com/spotahome/redis-operator/log"
 	"github.com/stretchr/testify/assert"
+	"github.com/szlabs/redis-operator/log"
 	corev1 "k8s.io/api/core/v1"
 
 	errors "k8s.io/apimachinery/pkg/api/errors"
@@ -15,16 +16,13 @@ import (
 	kubetesting "k8s.io/client-go/testing"
 )
 
-var (
-	secretsGroup = schema.GroupVersionResource{Group: "", Version: "v1", Resource: "secrets"}
-)
+var secretsGroup = schema.GroupVersionResource{Group: "", Version: "v1", Resource: "secrets"}
 
 func newSecretGetAction(ns, name string) kubetesting.GetActionImpl {
 	return kubetesting.NewGetAction(secretsGroup, ns, name)
 }
 
 func TestSecretServiceGet(t *testing.T) {
-
 	t.Run("Test getting a secret", func(t *testing.T) {
 		assert := assert.New(t)
 
@@ -50,7 +48,7 @@ func TestSecretServiceGet(t *testing.T) {
 			return true, nil, errors.NewNotFound(action.GetResource().GroupResource(), a.Name)
 		})
 
-		_, err := mcli.CoreV1().Secrets(secret.ObjectMeta.Namespace).Create(&secret)
+		_, err := mcli.CoreV1().Secrets(secret.ObjectMeta.Namespace).Create(context.TODO(), &secret, metav1.CreateOptions{})
 		assert.NoError(err)
 
 		// test getting the secret

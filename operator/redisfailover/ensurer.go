@@ -3,7 +3,7 @@ package redisfailover
 import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	redisfailoverv1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
+	redisfailoverv1 "github.com/szlabs/redis-operator/api/redisfailover/v1"
 )
 
 // Ensure is called to ensure all of the resources associated with a RedisFailover are created

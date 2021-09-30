@@ -9,10 +9,10 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/spotahome/redis-operator/log"
-	mK8SService "github.com/spotahome/redis-operator/mocks/service/k8s"
-	mRedisService "github.com/spotahome/redis-operator/mocks/service/redis"
-	rfservice "github.com/spotahome/redis-operator/operator/redisfailover/service"
+	"github.com/szlabs/redis-operator/log"
+	mK8SService "github.com/szlabs/redis-operator/mocks/service/k8s"
+	mRedisService "github.com/szlabs/redis-operator/mocks/service/redis"
+	rfservice "github.com/szlabs/redis-operator/operator/redisfailover/service"
 )
 
 func TestSetOldestAsMasterNewMasterError(t *testing.T) {

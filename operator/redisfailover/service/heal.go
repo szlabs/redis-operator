@@ -5,10 +5,10 @@ import (
 	"sort"
 	"strconv"
 
-	redisfailoverv1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
-	"github.com/spotahome/redis-operator/log"
-	"github.com/spotahome/redis-operator/service/k8s"
-	"github.com/spotahome/redis-operator/service/redis"
+	redisfailoverv1 "github.com/szlabs/redis-operator/api/redisfailover/v1"
+	"github.com/szlabs/redis-operator/log"
+	"github.com/szlabs/redis-operator/service/k8s"
+	"github.com/szlabs/redis-operator/service/redis"
 )
 
 // RedisFailoverHeal defines the interface able to fix the problems on the redis failovers
@@ -189,7 +189,7 @@ func (r *RedisFailoverHealer) SetRedisCustomConfig(ip string, rf *redisfailoverv
 	return r.redisClient.SetCustomRedisConfig(ip, rf.Spec.Redis.CustomConfig, password)
 }
 
-//DeletePod delete a failing pod so kubernetes relaunch it again
+// DeletePod delete a failing pod so kubernetes relaunch it again
 func (r *RedisFailoverHealer) DeletePod(podName string, rFailover *redisfailoverv1.RedisFailover) error {
 	r.logger.Debugf("Deleting pods %s...", podName)
 	return r.k8sService.DeletePod(rFailover.Namespace, podName)

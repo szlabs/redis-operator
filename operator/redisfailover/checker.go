@@ -4,14 +4,14 @@ import (
 	"errors"
 	"time"
 
-	redisfailoverv1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
+	redisfailoverv1 "github.com/szlabs/redis-operator/api/redisfailover/v1"
 )
 
 const (
 	timeToPrepare = 2 * time.Minute
 )
 
-//UpdateRedisesPods if the running version of pods are equal to the statefulset one
+// UpdateRedisesPods if the running version of pods are equal to the statefulset one
 func (r *RedisFailoverHandler) UpdateRedisesPods(rf *redisfailoverv1.RedisFailover) error {
 	redises, err := r.rfChecker.GetRedisesIPs(rf)
 	if err != nil {
@@ -52,7 +52,7 @@ func (r *RedisFailoverHandler) UpdateRedisesPods(rf *redisfailoverv1.RedisFailov
 			return err
 		}
 		if revision != ssUR {
-			//Delete pod and wait next round to check if the new one is synced
+			// Delete pod and wait next round to check if the new one is synced
 			r.rfHealer.DeletePod(pod, rf)
 			return nil
 		}

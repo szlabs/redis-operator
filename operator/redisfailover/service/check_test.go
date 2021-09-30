@@ -10,11 +10,11 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	redisfailoverv1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
-	"github.com/spotahome/redis-operator/log"
-	mK8SService "github.com/spotahome/redis-operator/mocks/service/k8s"
-	mRedisService "github.com/spotahome/redis-operator/mocks/service/redis"
-	rfservice "github.com/spotahome/redis-operator/operator/redisfailover/service"
+	redisfailoverv1 "github.com/szlabs/redis-operator/api/redisfailover/v1"
+	"github.com/szlabs/redis-operator/log"
+	mK8SService "github.com/szlabs/redis-operator/mocks/service/k8s"
+	mRedisService "github.com/szlabs/redis-operator/mocks/service/redis"
+	rfservice "github.com/szlabs/redis-operator/operator/redisfailover/service"
 )
 
 func generateRF() *redisfailoverv1.RedisFailover {
@@ -811,7 +811,6 @@ func TestGetStatefulSetUpdateRevision(t *testing.T) {
 
 		assert.Equal(version, test.expectedUVersion)
 	}
-
 }
 
 func TestGetRedisRevisionHash(t *testing.T) {
@@ -860,5 +859,4 @@ func TestGetRedisRevisionHash(t *testing.T) {
 
 		assert.Equal(hash, test.expectedHash)
 	}
-
 }

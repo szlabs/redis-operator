@@ -1,9 +1,9 @@
 package service
 
 import (
-	"fmt"
-
 	"bytes"
+	"fmt"
+	"text/template"
 
 	appsv1 "k8s.io/api/apps/v1"
 	v1 "k8s.io/api/apps/v1"
@@ -13,10 +13,8 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/util/intstr"
 
-	"text/template"
-
-	redisfailoverv1 "github.com/spotahome/redis-operator/api/redisfailover/v1"
-	"github.com/spotahome/redis-operator/operator/redisfailover/util"
+	redisfailoverv1 "github.com/szlabs/redis-operator/api/redisfailover/v1"
+	"github.com/szlabs/redis-operator/operator/redisfailover/util"
 )
 
 const (
@@ -182,6 +180,7 @@ fi`
 		},
 	}
 }
+
 func generateRedisReadinessConfigMap(rf *redisfailoverv1.RedisFailover, labels map[string]string, ownerRefs []metav1.OwnerReference) *corev1.ConfigMap {
 	name := GetRedisReadinessName(rf)
 	namespace := rf.Namespace
@@ -582,7 +581,6 @@ func createRedisExporterContainer(rf *redisfailoverv1.RedisFailover) corev1.Cont
 				},
 			},
 		})
-
 	}
 
 	return container

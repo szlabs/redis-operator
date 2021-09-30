@@ -13,13 +13,11 @@ import (
 	kubernetes "k8s.io/client-go/kubernetes/fake"
 	kubetesting "k8s.io/client-go/testing"
 
-	"github.com/spotahome/redis-operator/log"
-	"github.com/spotahome/redis-operator/service/k8s"
+	"github.com/szlabs/redis-operator/log"
+	"github.com/szlabs/redis-operator/service/k8s"
 )
 
-var (
-	deploymentsGroup = schema.GroupVersionResource{Group: "apps", Version: "v1", Resource: "deployments"}
-)
+var deploymentsGroup = schema.GroupVersionResource{Group: "apps", Version: "v1", Resource: "deployments"}
 
 func newDeploymentUpdateAction(ns string, deployment *appsv1.Deployment) kubetesting.UpdateActionImpl {
 	return kubetesting.NewUpdateAction(deploymentsGroup, ns, deployment)

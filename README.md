@@ -1,14 +1,13 @@
 # redis-operator
 
-[![Build Status](https://travis-ci.org/spotahome/redis-operator.png)](https://travis-ci.org/spotahome/redis-operator)
-[![Go Report Card](http://goreportcard.com/badge/spotahome/redis-operator)](http://goreportcard.com/report/spotahome/redis-operator)
+[![Build Status](https://travis-ci.org/szlabs/redis-operator.png)](https://travis-ci.org/szlabs/redis-operator)
+[![Go Report Card](http://goreportcard.com/badge/szlabs/redis-operator)](http://goreportcard.com/report/szlabs/redis-operator)
 
 Redis Operator creates/configures/manages redis-failovers atop Kubernetes.
 
 ## Requirements
 
-Redis Operator is meant to be run on Kubernetes 1.9+.
-All dependencies have been vendored, so there's no need to any additional download.
+Redis Operator is meant to be run on Kubernetes 1.16+.
 
 ### Versions deployed
 
@@ -18,7 +17,7 @@ The image versions deployed by the operator can be found on the [defaults file](
 
 ### Redis Operator
 
-[![Redis Operator Image](https://quay.io/repository/spotahome/redis-operator/status "Redis Operator Image")](https://quay.io/repository/spotahome/redis-operator)
+[![Redis Operator Image](https://quay.io/repository/szlabs/redis-operator/status "Redis Operator Image")](https://quay.io/repository/szlabs/redis-operator)
 
 ## Operator deployment on kubernetes
 
@@ -29,7 +28,7 @@ In order to create Redis failovers inside a Kubernetes cluster, the operator has
 To create the operator, you can directly create it with kubectl:
 
 ```
-kubectl create -f https://raw.githubusercontent.com/spotahome/redis-operator/master/example/operator/all-redis-operator-resources.yaml
+kubectl create -f https://raw.githubusercontent.com/szlabs/redis-operator/master/example/operator/all-redis-operator-resources.yaml
 ```
 
 This will create a deployment named `redisoperator`.
@@ -39,7 +38,8 @@ This will create a deployment named `redisoperator`.
 From the root folder of the project, execute the following:
 
 ```
-helm install --name redisfailover charts/redisoperator
+# helm v3
+helm install redisfailover charts/redisoperator
 ```
 
 ## Usage
@@ -49,7 +49,7 @@ Once the operator is deployed inside a Kubernetes cluster, a new API will be acc
 In order to deploy a new redis-failover a [specification](example/redisfailover/basic.yaml) has to be created:
 
 ```
-kubectl create -f https://raw.githubusercontent.com/spotahome/redis-operator/master/example/redisfailover/basic.yaml
+kubectl create -f https://raw.githubusercontent.com/szlabs/redis-operator/master/example/redisfailover/basic.yaml
 ```
 
 This redis-failover will be managed by the operator, resulting in the following elements created inside Kubernetes:
@@ -231,6 +231,6 @@ kubectl delete redisfailover <NAME>
 
 ## Documentation
 
-For the code documentation, you can lookup on the [GoDoc](https://godoc.org/github.com/spotahome/redis-operator).
+For the code documentation, you can lookup on the [GoDoc](https://godoc.org/github.com/szlabs/redis-operator).
 
 Also, you can check more deeply information on the [docs folder](docs).

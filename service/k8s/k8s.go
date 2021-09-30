@@ -4,8 +4,8 @@ import (
 	apiextensionscli "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset"
 	"k8s.io/client-go/kubernetes"
 
-	redisfailoverclientset "github.com/spotahome/redis-operator/client/k8s/clientset/versioned"
-	"github.com/spotahome/redis-operator/log"
+	redisfailoverclientset "github.com/szlabs/redis-operator/client/k8s/clientset/versioned"
+	"github.com/szlabs/redis-operator/log"
 )
 
 // Service is the K8s service entrypoint.

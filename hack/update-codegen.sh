@@ -15,6 +15,6 @@ GROUPS_VERSION="redisfailover:v1"
 # Typed listers & informers not required for the moment. Used with generic
 # custom informer/listerwatchers.
 ${CODEGEN_PKG}/generate-groups.sh "deepcopy,client" \
-  github.com/spotahome/redis-operator/client/k8s \
-  github.com/spotahome/redis-operator/api \
+  github.com/szlabs/redis-operator/client/k8s \
+  github.com/szlabs/redis-operator/api \
   "${GROUPS_VERSION}"

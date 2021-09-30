@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	crd "github.com/yxxhero/kooper/client/crd"
+	crd "github.com/szlabs/kooper/client/crd"
 
 	mock "github.com/stretchr/testify/mock"
 )
