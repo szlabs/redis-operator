@@ -3,7 +3,7 @@
 package mocks
 
 import (
-	crd "github.com/spotahome/kooper/client/crd"
+	crd "github.com/yxxhero/kooper/client/crd"
 	appsv1 "k8s.io/api/apps/v1"
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

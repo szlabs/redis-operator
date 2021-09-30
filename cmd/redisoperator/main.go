@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/prometheus/client_golang/prometheus"
-	kmetrics "github.com/spotahome/kooper/monitoring/metrics"
+	kmetrics "github.com/yxxhero/kooper/monitoring/metrics"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/oidc"
 	"k8s.io/client-go/rest"
 

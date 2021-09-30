@@ -1,7 +1,7 @@
 package k8s
 
 import (
-	"github.com/spotahome/kooper/client/crd"
+	"github.com/yxxhero/kooper/client/crd"
 	apiextensionscli "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset"
 
 	"github.com/spotahome/redis-operator/log"

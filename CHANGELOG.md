@@ -233,7 +233,7 @@ example: `kubectl delete statefulset --cascade=false rfr-redisfailover`
 
 ### Added
 
-- Use [Kooper](https://github.com/spotahome/kooper).
+- Use [Kooper](https://github.com/yxxhero/kooper).
 - New API version: `storage.spotahome.com/v1alpha2`.
 
 ### Changed
