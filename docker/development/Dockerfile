@@ -1,4 +1,4 @@
-FROM golang:1.13-alpine
+FROM golang:1.16-alpine
 
 ENV CODEGEN_VERSION="1.16.6"
 RUN go env -w GO111MODULE=on
@@ -19,11 +19,6 @@ RUN wget http://github.com.cnpmjs.org/kubernetes/code-generator/archive/kubernet
     mkdir -p /go/src/k8s.io/kubernetes/hack/boilerplate/ && \
     touch /go/src/k8s.io/kubernetes/hack/boilerplate/boilerplate.go.txt
 
-# Go dep installation
-RUN go get -u github.com/golang/dep/cmd/dep \
-    && mkdir -p /go/pkg/dep \
-    && chmod 777 /go/pkg/dep
-
 # Mock creator
 ARG MOCKERY_VERSION="2.9.4"
 RUN wget -c https://github.com.cnpmjs.org/vektra/mockery/releases/download/v${MOCKERY_VERSION}/mockery_${MOCKERY_VERSION}_$(uname -o)_$(uname -m).tar.gz -O - | tar -xz -C /go/bin/
@@ -39,4 +34,4 @@ RUN go env -w GOPROXY=https://goproxy.cn,direct
 
 
 USER rf
-WORKDIR /go/src/github.com/spotahome/redis-operator
+WORKDIR /go/src/github.com/szlabs/redis-operator
