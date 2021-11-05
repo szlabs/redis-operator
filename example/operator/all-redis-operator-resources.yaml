@@ -18,7 +18,7 @@ spec:
     spec:
       serviceAccountName: redisoperator
       containers:
-        - image: quay.io/szlabs/redis-operator:latest
+        - image: googleimages/redis-operator:v1.0.2
           imagePullPolicy: IfNotPresent
           name: app
           securityContext:
